@@ -1,0 +1,3 @@
+fundo da landpage (cinza/preto) - #060606
+vermelho - #A00000
+branco - #FFFFFF

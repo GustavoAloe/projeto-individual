@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@700&display=swap');
+
+
+:root{
+    --vermelho-primario: #A00000;
+    --cor-fundo: #060606;
+    --branco-textos: #FFFFFF;
+
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Jura", sans-serif;
+    background-color: var(--cor-fundo);
+  }
+
+.container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+
+.header {
+    height: 80px;
+    border-bottom: 1px solid var(--vermelho-primario)
+}
+
+.header .container {
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.header a {
+    text-decoration: none;
+    color: var(--branco-textos)
+}
+
+.navbar li {
+    font-weight: 800;
+}
+
+.navbar {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    inset: 0; /* define o tamanho da imagem */
+    background-image: url("../assets/fundoInicio.jpg");
+    background-size: cover;
+    background-position: bottom; /* Usa o bottom da imagem como referencia para centralizar a imagem */
+    z-index: -1; /* forçar a imagem a ir "pra baixo" do texto */
+    opacity: 0.5;
+}
+
+.banner .container {
+    display: flex;
+    align-items: center;
+    height: 40%;
+    flex-direction: column;
+}
+
+.banner .container h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 150px;
+    color: var(--branco-textos);
+}
+
+.banner .container h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 36px;
+    color: var(--branco-textos);
+}
