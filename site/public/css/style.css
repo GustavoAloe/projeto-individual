@@ -14,6 +14,7 @@ body {
     background-color: var(--cor-fundo);
   }
 
+/* Header */
 .container {
     display: flex;
     width: 80%;
@@ -22,7 +23,8 @@ body {
 
 .header {
     height: 80px;
-    border-bottom: 1px solid var(--vermelho-primario)
+    border-bottom: 1px solid var(--vermelho-primario);
+    background-color: var(--cor-fundo);
 }
 
 .header .container {
@@ -48,43 +50,194 @@ body {
     list-style: none;
 }
 
+.btn {
+    border: none;
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .3s;
+    border-radius: 5px;
+}
+
+.button {
+    background-color: var(--vermelho-primario);
+    outline: none;
+    color: var(--branco-textos);
+}
+
+.button:hover {
+    background-color: #c10000;
+}
+/* Fim da Header */
+
+/* Banner */
 .banner {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    width: 100%;
-    position: relative;
+    height: 92vh;
 }
 
-.banner::before {
+.imgBanner {
     content: "";
     position: absolute;
+    height: 100vh;
+    width: 100%;
     inset: 0; /* define o tamanho da imagem */
-    background-image: url("../assets/fundoInicio.jpg");
     background-size: cover;
     background-position: bottom; /* Usa o bottom da imagem como referencia para centralizar a imagem */
     z-index: -1; /* forçar a imagem a ir "pra baixo" do texto */
     opacity: 0.5;
+    border-bottom: 1px solid var(--vermelho-primario)
 }
 
-.banner .container {
+.banner .bannerContainer {
     display: flex;
     align-items: center;
     height: 40%;
     flex-direction: column;
 }
 
-.banner .container h1 {
-    margin: 0;
+.banner .bannerContainer h1 {
+    margin: 0%;
     padding: 0;
     font-size: 150px;
     color: var(--branco-textos);
 }
 
-.banner .container h3 {
-    margin: 0;
+.banner .bannerContainer h3 {
+    margin: 0%;
     padding: 0;
     font-size: 36px;
     color: var(--branco-textos);
+}
+/* Fim do Banner */
+
+/* Slider */
+.slider { /* altera o local do slider */
+    margin: 5px auto;
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.slides {
+    width: 400%;
+    height: 400px;
+    display: flex;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide {
+    width: 25%;
+    position: relative;
+    transition: 3s;
+}
+
+.slide img {
+    width: 800px;
+}
+
+.manual-navigation {
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn {
+    border: 2px solid var(--branco-textos);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child) {
+    margin-right: 40px;
+}
+
+.manual-btn:hover {
+    background-color: var(--branco-textos);
+}
+
+#radio1:checked ~ .first {
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+    margin-left: -25%;
+}
+
+#radio3:checked ~ .first {
+    margin-left: -50%;
+}
+
+#radio4:checked ~ .first {
+    margin-left: -75%;
+}
+
+#radio5:checked ~ .first {
+    margin-left: -100%;
+}
+
+.navigation-auto div {
+    border: 2px solid var(--vermelho-primario);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.navigation-auto {
+    position: absolute;
+    width: 800px;
+    margin-top: 360px;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-auto div:not(:last-child) {
+    margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+    background-color: var(--branco-textos);
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+    background-color: var(--branco-textos);
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+    background-color: var(--branco-textos);
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+    background-color: var(--branco-textos);
+}
+
+#radio5:checked ~ .navigation-auto .auto-btn5 {
+    background-color: var(--branco-textos);
+}
+
+/* Fim do Slider */
+
+.textoSobre p {
+    padding: 10px;
+    margin: 0;
+    color: var(--branco-textos);
+    display: flex;
+    text-align: center;
+}
+
+.textoSobre h2 {
+    color: var(--branco-textos);
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
