@@ -115,7 +115,7 @@ body {
 
 /* Slider */
 .slider { /* altera o local do slider */
-    margin: 5px auto;
+    margin: 50px;
     width: 800px;
     height: 400px;
     overflow: hidden;
@@ -185,6 +185,10 @@ body {
     margin-left: -100%;
 }
 
+#radio6:checked ~ .first {
+    margin-left: -125%;
+}
+
 .navigation-auto div {
     border: 2px solid var(--vermelho-primario);
     padding: 5px;
@@ -225,7 +229,19 @@ body {
     background-color: var(--branco-textos);
 }
 
+#radio6:checked ~ .navigation-auto .auto-btn6 {
+    background-color: var(--branco-textos);
+}
+
 /* Fim do Slider */
+
+/* Texto Slider */
+.textoSobre {
+    position: relative;
+    left: 900px;
+    bottom: 445px;
+    width: 250px;
+}
 
 .textoSobre p {
     padding: 10px;
@@ -233,11 +249,19 @@ body {
     color: var(--branco-textos);
     display: flex;
     text-align: center;
+    width: 600px;
+    font-size: 18px;
 }
 
-.textoSobre h2 {
+/* Fim do texto Slider */
+
+.textoCamps {
+    margin: 0;
+    padding: 0;
     color: var(--branco-textos);
     display: flex;
     justify-content: center;
-    text-align: center;
+    align-items: center;
+    position: relative;
+    bottom: 380px;
 }
