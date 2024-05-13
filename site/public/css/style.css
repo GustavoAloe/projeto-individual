@@ -238,9 +238,9 @@ body {
 /* Texto Slider */
 .textoSobre {
     position: relative;
-    left: 900px;
-    bottom: 445px;
-    width: 250px;
+    left: 865px;
+    bottom: 490px;
+    width: 280px;
 }
 
 .textoSobre p {
@@ -249,7 +249,7 @@ body {
     color: var(--branco-textos);
     display: flex;
     text-align: center;
-    width: 600px;
+    width: 720px;
     font-size: 18px;
 }
 
@@ -263,5 +263,53 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    bottom: 380px;
+    bottom: 430px;
+}
+
+
+/* Carrossel Imagens Camp */
+.carrossel-camps {
+    position: relative;
+    width: 54%; /* Largura do carrossel */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    bottom: 400px;
+    left: 350px;
+}
+
+.carrosselCamps-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carrossel-slide {
+    min-width: 100px; /* Largura mínima para cada slide */
+    padding: 10px; /* Espaçamento entre imagens */
+}
+
+.carrossel-slide img {
+    width: 100px; 
+    height: auto;
+}
+
+.carrossel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--branco-textos);
+    color: var(--cor-fundo);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 10;
+}
+
+.carrossel-btn.prev {
+    left: 10px;
+}
+
+.carrossel-btn.next {
+    right: 10px;
 }
