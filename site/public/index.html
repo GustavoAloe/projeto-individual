@@ -115,19 +115,25 @@
         <h2>Alguns dos campeonatos mais jogados em diferentes jogos</h2>
     </div>
 
-    <div class="carrossel-camps">
-        <button class="carrossel-btn prev" onclick="prevSlide()">&#8249;</button> <!-- Botão para slide anterior -->
-        <div class="carrosselCamps-inner">
-            <div class="carrossel-slide"><img src="assets/icon/ESL ONE LOGO.png" alt="logo Esl"></div>
-            <div class="carrossel-slide"><img src="assets/icon/VCT LOGO.png" alt="logo Vct"></div>
-            <div class="carrossel-slide"><img src="assets/icon/r6 invitational logo.png" alt="logo r6"></div>
-            <div class="carrossel-slide"><img src="assets/icon/fncsLogo.png" alt="logo fncs"></div>
-            <div class="carrossel-slide"><img src="assets/icon/evoLogo.png" alt="logo evo"></div>
-            <div class="carrossel-slide"><img src="assets/icon/m5 world championship mobile legends.png" alt="logo m5"></div>
-            <div class="carrossel-slide"><img src="assets/icon/worlds logo.png" alt="logo worlds"></div>
+    <div class="containerCamp">
+        <button class="arrow-left control" aria-label="Previous Image">🡸</button>
+        <button class="arrow-right control" aria-label="Next Image">🡺</button>
+        <div class="gallery-wrapper">
+            <div class="gallery">
+                <img src="/site/public/assets/icon/eslOneLogo.png" alt="Logo esl" class="item current-item">
+                <img src="/site/public/assets/icon/vctLogo.png" alt="logo vct" class="item">
+                <img src="/site/public/assets/icon/r6InvitationaLogo.png" alt="logo r6" class="item">
+                <img src="/site/public/assets/icon/fncsLogo.png" alt="logo fncs" class="item">
+                <img src="/site/public/assets/icon/evoLogo.png" alt="logo evo" class="item">
+                <img src="/site/public/assets/icon/worldsLogo.png" alt="logo worlds" class="item">
+                <img src="/site/public/assets/icon/m5WorldLogo.png" alt="logo m5" class="item">
+                <img src="/site/public/assets/icon/ffLogo.png" alt="logo ff" class="item">
+                <img src="/site/public/assets/icon/logofifa.png" alt="logo fifa" class="item">
+            </div>
         </div>
-        <button class="carrossel-btn next" onclick="nextSlide()">&#8250;</button> <!-- Botão para próximo slide -->
     </div>
+
+    <div class="containerSobreCamp"></div>
 
 
     <script src="script.js"></script>
