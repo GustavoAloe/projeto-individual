@@ -1,6 +1,7 @@
 // Carrossel Imagens Sobre
 let count = 1;
-document.getElementById("radio1").checked = true;
+var checkbox = document.getElementById('radio');
+checkbox.checked = true;
 
 setInterval(function () {
   nextImage();
@@ -23,7 +24,7 @@ const maxItems = items.length;
 
 controls.forEach((control) => {
   control.addEventListener("click", () => {
-    const isLeft = control.classList.contains("arrow-left");
+    const isLeft = control.classList.contains("left-arrow");
 
     if (isLeft) {
       currentItem -= 1;

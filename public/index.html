@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>eSports</title>
-
-    <link rel="stylesheet" href="css/style.css">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>eSports</title>
+        
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
 <body>
+    <!-- <a href="#" class="back-to-top">
+        <span class="material-symbols-outlined">
+            arrow_upward_alt
+        </span>
+    </a> -->
     <div class="header">
         <div class="container">
             <div class="logo">
-                <img style="margin: 0; width: 60px; height: 60px;" src="assets/icon/logo.png" alt="">
+                <img style="margin: 0; width: 60px; height: 60px;" src="./assets/icon/logo.png" alt="">
             </div>
             <nav class="navbar">
                 <li>
@@ -30,10 +37,10 @@
                     <a href="#">Jogos</a>
                 </li>
                 <li>
-                    <a href="#" class="btn button">Login</a>
+                    <a href="login.html" class="btn button">Login</a>
                 </li>
                 <li>
-                    <a href="#" class="btn button">Cadastro</a>
+                    <a href="cadastro.html" class="btn button">Cadastro</a>
                 </li>
             </nav>
         </div>
@@ -43,7 +50,7 @@
         <div class="bannerContainer">
             <h1>ESPORTS</h1>
             <h3>É mais do que apenas um jogo</h3>
-            <img class="imgBanner" src="assets/fundoInicio.jpg" alt="">
+            <img class="imgBanner" src="./assets/fundoInicio.jpg" alt="">
         </div>
     </div>
 
@@ -59,22 +66,22 @@
 
             <!--Imagens Slide-->
             <div class="slide first">
-                <img src="assets/imgSobre/valorantCamp.jpg" alt="Imagem valorant">
+                <img src="./assets/imgSobre/valorantCamp.jpg" alt="Imagem valorant">
             </div>
             <div class="slide">
-                <img src="assets/imgSobre/lolCamp.png" alt="Imagem lol">
+                <img src="./assets/imgSobre/lolCamp.png" alt="Imagem lol">
             </div>
             <div class="slide"> 
-                <img src="assets/imgSobre/ESports_Arena_2.jpg" alt="Imagem arena">
+                <img src="./assets/imgSobre/ESports_Arena_2.jpg" alt="Imagem arena">
             </div>
             <div class="slide">
-                <img src="assets/imgSobre/ESLONE CSGO.png" alt="Imagem cs">
+                <img src="./assets/imgSobre/ESLONE CSGO.png" alt="Imagem cs">
             </div>
             <div class="slide">
-                <img src="assets/imgSobre/evoStage.jpg" alt="Imagem evo">
+                <img src="./assets/imgSobre/evoStage.jpg" alt="Imagem evo">
             </div>
             <div class="slide">
-                <img src="assets/imgSobre/fortniteStag.png" alt="Imagem fortnite">
+                <img src="./assets/imgSobre/fortniteStag.png" alt="Imagem fortnite">
             </div>
 
             <!--Navigation auto-->
@@ -116,27 +123,38 @@
     </div>
 
     <div class="containerCamp">
-        <button class="arrow-left control" aria-label="Previous Image">🡸</button>
-        <button class="arrow-right control" aria-label="Next Image">🡺</button>
+        <button class="left-arrow control" aria-label="Previous Image">🡸</button>
+        <button class="right-arrow control" aria-label="Next Image">🡺</button>
         <div class="gallery-wrapper">
             <div class="gallery">
-                <img src="/site/public/assets/icon/eslOneLogo.png" alt="Logo esl" class="item current-item">
-                <img src="/site/public/assets/icon/vctLogo.png" alt="logo vct" class="item">
-                <img src="/site/public/assets/icon/r6InvitationaLogo.png" alt="logo r6" class="item">
-                <img src="/site/public/assets/icon/fncsLogo.png" alt="logo fncs" class="item">
-                <img src="/site/public/assets/icon/evoLogo.png" alt="logo evo" class="item">
-                <img src="/site/public/assets/icon/worldsLogo.png" alt="logo worlds" class="item">
-                <img src="/site/public/assets/icon/m5WorldLogo.png" alt="logo m5" class="item">
-                <img src="/site/public/assets/icon/ffLogo.png" alt="logo ff" class="item">
-                <img src="/site/public/assets/icon/logofifa.png" alt="logo fifa" class="item">
+                <img src="./assets/icon/eslOneLogo.png" alt="Logo esl" class="item current-item">
+                <img src="./assets/icon/vctLogo.png" alt="logo vct" class="item">
+                <img src="./assets/icon/r6InvitationaLogo.png" alt="logo r6" class="item">
+                <img src="./assets/icon/fncsLogo.png" alt="logo fncs" class="item">
+                <img src="./assets/icon/evoLogo.png" alt="logo evo" class="item">
+                <img src="./assets/icon/worldsLogo.png" alt="logo worlds" class="item">
+                <img src="./assets/icon/m5WorldLogo.png" alt="logo m5" class="item">
+                <img src="./assets/icon/ffLogo.png" alt="logo ff" class="item">
+                <img src="./assets/icon/logofifa.png" alt="logo fifa" class="item">
             </div>
         </div>
     </div>
 
-    <div class="containerSobreCamp"></div>
+    <div class="competitive">
+        <div class="container">
+          <div class="boxCompetitive">
+            <div class="box">
+              <img src="assets/imgs/growth_color.png">
+              <h4>Valores</h4>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
+                vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
+                minima.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
-    <script src="script.js"></script>
 </body>
 
 </html>

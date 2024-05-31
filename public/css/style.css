@@ -272,7 +272,7 @@ body {
 .containerCamp {
     position: relative;
     padding: 15px;
-    max-width: 700px;
+    max-width: 720px;
     margin: 0 auto;
     bottom: 420px;
 }
@@ -287,8 +287,8 @@ body {
     gap: 15px;
 }
 
-.arrow-left,
-.arrow-right {
+.left-arrow,
+.right-arrow {
     position: absolute;
     top: 0;
     left: -20px;
@@ -304,7 +304,7 @@ body {
     background: var(--cor-fundo)  0;
 }
 
-.arrow-right {
+.right-arrow {
     left: auto;
     right: 0px;
 }
@@ -328,4 +328,59 @@ body {
 .gallery-wrapper {
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+/* 
+html {
+    scroll-behavior: smooth;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--vermelho-primario);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    text-decoration: none;
+    transition: 0.2 ease-in-out;
+}
+
+.back-to-top span {
+    color: var(--branco-textos);
+    font-size: 3rem;
+    transition: 0.2s ease-in-out;
+}
+
+.back-to-top:hover {
+    background-color: red;
+}
+
+.back-to-top:hover span {
+    transform: translateY(-4px);
+} */
+
+.seccao {
+    display: flex;
+    border-bottom: 1px solid var(--vermelho-primario);
+}
+
+.textoComp {
+    position: relative;
+    right: 620px;
+    bottom: 300px;
+    width: 280px;
+    margin: 0 auto;
+}
+
+.textoComp p {
+    padding: 10px;
+    margin: 0;
+    color: var(--branco-textos);
+    display: flex;
+    text-align: center;
+    width: 720px;
+    font-size: 18px;
 }
