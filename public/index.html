@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <title>eSports</title>
-        
-        <link rel="stylesheet" href="./css/style.css">
-        <script src="script.js"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>eSports</title>
+
+    <script src="./js/sessao.js"></script>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="./js/script.js"></script>
 </head>
 
 <body>
-    <!-- <a href="#" class="back-to-top">
-        <span class="material-symbols-outlined">
-            arrow_upward_alt
-        </span>
-    </a> -->
+    <!-- header -->
     <div class="header">
         <div class="container">
             <div class="logo">
-                <img style="margin: 0; width: 60px; height: 60px;" src="./assets/icon/logo.png" alt="">
+                <a href="./index.html"><img style="margin: 0; width: 60px; height: 60px;" src="./assets/icon/logo.png"
+                        alt=""></a>
             </div>
             <nav class="navbar">
+                    <li>
+                        <a href="#">Início</a>
+                    </li>
+                    <li>
+                        <a href="#sobre">Sobre</a>
+                    </li>
+                    <li>
+                        <a href="#competitivo">Competitivo</a>
+                    </li>
+                    <li>
+                        <a href="#aboutMe">Sobre Mim</a>
+                    </li>
+                
                 <li>
-                    <a href="#">Início</a>
+                    <a href="./login.html" class="btn button">Login</a>
                 </li>
+
                 <li>
-                    <a href="#">Sobre</a>
-                </li>
-                <li>
-                    <a href="#">Competitivo</a>
-                </li>
-                <li>
-                    <a href="#">Jogos</a>
-                </li>
-                <li>
-                    <a href="login.html" class="btn button">Login</a>
-                </li>
-                <li>
-                    <a href="cadastro.html" class="btn button">Cadastro</a>
+                    <a href="./cadastro.html" class="btn button">Cadastro</a>
                 </li>
             </nav>
         </div>
     </div>
+    <!-- header -->
 
+    <!-- banner -->
     <div class="banner">
         <div class="bannerContainer">
             <h1>ESPORTS</h1>
@@ -53,108 +57,301 @@
             <img class="imgBanner" src="./assets/fundoInicio.jpg" alt="">
         </div>
     </div>
+    <!-- banner -->
 
-    <div class="slider">
-        <div class="slides">
-            <!--Radio Buttons-->
-            <input type="radio" name="radio-btn" id="radio1">
-            <input type="radio" name="radio-btn" id="radio2">
-            <input type="radio" name="radio-btn" id="radio3">
-            <input type="radio" name="radio-btn" id="radio4">
-            <input type="radio" name="radio-btn" id="radio5">
-            <input type="radio" name="radio-btn" id="radio6">
+    <!-- carrossel sobre -->
+    <section id="sobre" class="container-sobre">
+        <div class="slider">
+            <div class="slides">
+                <!--Radio Buttons-->
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+                <input type="radio" name="radio-btn" id="radio5">
+                <input type="radio" name="radio-btn" id="radio6">
 
-            <!--Imagens Slide-->
-            <div class="slide first">
-                <img src="./assets/imgSobre/valorantCamp.jpg" alt="Imagem valorant">
-            </div>
-            <div class="slide">
-                <img src="./assets/imgSobre/lolCamp.png" alt="Imagem lol">
-            </div>
-            <div class="slide"> 
-                <img src="./assets/imgSobre/ESports_Arena_2.jpg" alt="Imagem arena">
-            </div>
-            <div class="slide">
-                <img src="./assets/imgSobre/ESLONE CSGO.png" alt="Imagem cs">
-            </div>
-            <div class="slide">
-                <img src="./assets/imgSobre/evoStage.jpg" alt="Imagem evo">
-            </div>
-            <div class="slide">
-                <img src="./assets/imgSobre/fortniteStag.png" alt="Imagem fortnite">
+                <!--Imagens Slide-->
+                <div class="slide first">
+                    <img src="./assets/imgSobre/valorantCamp.jpg" alt="Imagem valorant">
+                </div>
+                <div class="slide">
+                    <img src="./assets/imgSobre/lolCamp.png" alt="Imagem lol">
+                </div>
+                <div class="slide">
+                    <img src="./assets/imgSobre/ESports_Arena_2.jpg" alt="Imagem arena">
+                </div>
+                <div class="slide">
+                    <img src="./assets/imgSobre/ESLONE CSGO.png" alt="Imagem cs">
+                </div>
+                <div class="slide">
+                    <img src="./assets/imgSobre/evoStage.jpg" alt="Imagem evo">
+                </div>
+                <div class="slide">
+                    <img src="./assets/imgSobre/fortniteStag.png" alt="Imagem fortnite">
+                </div>
+
+                <!--Navigation auto-->
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                    <div class="auto-btn5"></div>
+                    <div class="auto-btn6"></div>
+                </div>
+
             </div>
 
-            <!--Navigation auto-->
-            <div class="navigation-auto">
-                <div class="auto-btn1"></div>
-                <div class="auto-btn2"></div>
-                <div class="auto-btn3"></div>
-                <div class="auto-btn4"></div>
-                <div class="auto-btn5"></div>
-                <div class="auto-btn6"></div>
+            <div class="manual-navigation">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+                <label for="radio5" class="manual-btn"></label>
+                <label for="radio6" class="manual-btn"></label>
             </div>
 
         </div>
+        <!-- carrossel sobre -->
 
-        <div class="manual-navigation">
-            <label for="radio1" class="manual-btn"></label>
-            <label for="radio2" class="manual-btn"></label>
-            <label for="radio3" class="manual-btn"></label>
-            <label for="radio4" class="manual-btn"></label>
-            <label for="radio5" class="manual-btn"></label>
-            <label for="radio6" class="manual-btn"></label>
+        <!-- sessao sobre -->
+        <div class="textSobre">
+
+            <p> Ao longo das décadas, os eSports foram ganhando traços mais competitivos e deixaram de ser apenas jogos.
+                Os
+                eSports referem-se a competições de jogos eletrônicos e possuem quatro pilares principais: os jogadores,
+                as
+                empresas de games eletrônicos, as ligas e as plataformas de streaming.
+            </p>
+
+            <p> Os eSports têm origem no início da década de 70, com a realização das “Olimpíadas Intergaláticas de
+                Spacewar”, um dos primeiros jogos de computador. Oito anos mais tarde, em 1980, a Atari organizou o
+                Space
+                Invaders Championship. E posteriormente em 1990, foi criado o Nintendo World Championships, com diversas
+                etapas em várias cidades dos EUA e com final na Califórnia.
+            </p>
+
+            <p> Com a chegada da internet e banda larga nos anos seguintes, foi possível a realização de eventos online
+                causando um boom na quantidade de competições entre os anos 2000 e 2010. No Brasil, as lan houses eram
+                um
+                fenômeno público nos anos 90. Como, a internet nesta época ainda era cara e não tinha uma boa qualidade,
+                o
+                serviço se tornou famoso por oferecer uma boa conexão e diversos jogos, tendo como maior destaque o CS
+                1.6.
+                O sucesso foi tão grande, que passaram a realizar torneios de jogos eletrônicos, que cresceram, viraram
+                um
+                negócio lucrativo e ajudaram a impulsionar o desenvolvimento dos eSports dos anos 2000 em diante.
+            </p>
+
+        </div>
+        <!-- sessao sobre -->
+    </section>
+
+    <!-- sessao campeonatos -->
+    <section class="container-camps">
+        <div class="textCamps">
+            <h2>Alguns dos campeonatos mais jogados em diferentes jogos</h2>
         </div>
 
-    </div>
+        <div class="containerCamp">
+            <button class="left-arrow control" aria-label="Previous Image">🡸</button>
+            <button class="right-arrow control" aria-label="Next Image">🡺</button>
+            <div class="gallery-wrapper">
+                <div class="gallery">
+                    <img src="./assets/icon/eslOneLogo.png" alt="Logo esl" class="item current-item">
+                    <img src="./assets/icon/vctLogo.png" alt="logo vct" class="item">
+                    <img src="./assets/icon/r6InvitationaLogo.png" alt="logo r6" class="item">
+                    <img src="./assets/icon/fncsLogo.png" alt="logo fncs" class="item">
+                    <img src="./assets/icon/evoLogo.png" alt="logo evo" class="item">
+                    <img src="./assets/icon/worldsLogo.png" alt="logo worlds" class="item">
+                    <img src="./assets/icon/m5WorldLogo.png" alt="logo m5" class="item">
+                    <img src="./assets/icon/ffLogo.png" alt="logo ff" class="item">
+                    <img src="./assets/icon/logofifa.png" alt="logo fifa" class="item">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- sessao campeonatos -->
 
-    <div class="textoSobre">
-        <p> Ao longo das décadas, os eSports foram ganhando traços mais competitivos e deixaram de ser apenas jogos. Os
-        eSports referem-se a competições de jogos eletrônicos e possuem quatro pilares principais: os jogadores, as empresas de games eletrônicos, as ligas e as plataformas de streaming.
-        </p>
-        <p> Os eSports têm origem no início da década de 70, com a realização das “Olimpíadas Intergaláticas de
-        Spacewar”, um dos primeiros jogos de computador. Oito anos mais tarde, em 1980, a Atari organizou o Space Invaders Championship. E posteriormente em 1990, foi criado o Nintendo World Championships, com diversas etapas em várias cidades dos EUA e com final na Califórnia.
-        </p>
-        <p> Com a chegada da internet e banda larga nos anos seguintes, foi possível a realização de eventos online causando um boom na quantidade de competições entre os anos 2000 e 2010. No Brasil, as lan houses eram um fenômeno público nos anos 90. Como, a internet nesta época ainda era cara e não tinha uma boa qualidade, o serviço se tornou famoso por oferecer uma boa conexão e diversos jogos, tendo como maior destaque o CS 1.6. O sucesso foi tão grande, que passaram a realizar torneios de jogos eletrônicos, que cresceram, viraram um negócio lucrativo e ajudaram a impulsionar o desenvolvimento dos eSports dos anos 2000 em diante.
-        </p>
-    </div>
+    <!-- sessao competitivo -->
+    <section id="competitivo" class="competitive">
+        <div class="textComp">
+            <p>Com o crescimento dos eSports, começaram a surgir as organizações, que são parte fundamental
+                dentro do cenário. Por trazer milhares de fãs e torcedores do mundo todo, além do poder monetário para
+                fazer o cenário se alavancar e girar.
+                Outro fator são os campeonatos que são extremamente estruturados e distribuem premiações milionárias,
+                são assistidos por milhões de pessoas em todo o mundo, e com o crescimento do streaming foi ficando mais
+                fácil para se acompanhar os campeonatos e consequentemente foi trazendo mais investimento para os
+                campeonatos.
+            </p>
+            <p>Além disso com a evolução e crescimento do cenário, as organizações passaram a investir mais em comissão
+                técnica, psicólogos, massagistas, fisioterapeuta e preparadores físicos, tudo em uma infraestrutura de
+                qualidade
+                para seus jogadores.
+            </p>
+            <p>Os pro players, como são chamados os jogadores profissionais, passam por um preparo físico e mental para
+                participar das competições de games.
+                Por isso, as organizações desenvolvem uma rotina de treinamento personalizada para as equipes.
+                Esses treinamentos normalmente acontecem nas gaming houses, centros desenvolvidos especialmente para
+                essa finalidade,
+                e podem seguir uma rotina de oito a 12 horas diárias. Essas gaming houses oferecem toda a infraestrutura
+                necessária para aprimorar as habilidades da equipe
+                como equipamentos de qualidade, acompanhamento nutricional e psicológico.
+            </p>
+        </div>
+        <div class="imgComp">
+            <img src="./assets/imgSobre/imgSobre.png">
+            <img src="./assets/imgSobre/imgSobre2.png">
+            <img src="./assets/imgSobre/imgSobre3.png">
+        </div>
+    </section>
+    <!-- sessao competitivo -->
 
-    <div class="textoCamps">
-        <h2>Alguns dos campeonatos mais jogados em diferentes jogos</h2>
+    <!-- sessao jogos -->
+    <div class="tituloGames">
+        <p>Alguns dos jogos mais competidos nos últimos anos</p>
     </div>
-
-    <div class="containerCamp">
-        <button class="left-arrow control" aria-label="Previous Image">🡸</button>
-        <button class="right-arrow control" aria-label="Next Image">🡺</button>
-        <div class="gallery-wrapper">
-            <div class="gallery">
-                <img src="./assets/icon/eslOneLogo.png" alt="Logo esl" class="item current-item">
-                <img src="./assets/icon/vctLogo.png" alt="logo vct" class="item">
-                <img src="./assets/icon/r6InvitationaLogo.png" alt="logo r6" class="item">
-                <img src="./assets/icon/fncsLogo.png" alt="logo fncs" class="item">
-                <img src="./assets/icon/evoLogo.png" alt="logo evo" class="item">
-                <img src="./assets/icon/worldsLogo.png" alt="logo worlds" class="item">
-                <img src="./assets/icon/m5WorldLogo.png" alt="logo m5" class="item">
-                <img src="./assets/icon/ffLogo.png" alt="logo ff" class="item">
-                <img src="./assets/icon/logofifa.png" alt="logo fifa" class="item">
+    <div class="containerGames">
+        <div class="boxGames">
+            <h2>League of Legends</h2>
+            <img class="imgGame" src="./assets/icon/lolLogo.png" alt="">
+            <div class="textGame">
+                <p>É um MOBA desenvolvido e publicado pela Riot Games em 2009. Tornou-se um dos jogos mais populares do mundo. 
+                    Sendo conhecido por sua complexidade estratégica, jogabilidade rápida e um elenco diversificado
+                    de 140 campeões. Além disso, tem uma cena competitiva forte, que atrai milhões de espectadores globalmente.
+                    O jogo também teve um impacto significativo no crescimento dos eSports e dascomunidades de jogos online.
+                </p>
+            </div>
+        </div>
+        <div class="boxGames">
+            <h2>Counter Strike</h2>
+            <img class="imgGame" src="./assets/icon/csgoLogo.png" alt="">
+            <div class="textGame">
+                <p>É um jogo de tiro em primeira pessoa (FPS) desenvolvido inicialmente como um mod para Half-Life em 1999, 
+                    mais tarde lançado como um título pela Valve. Se tornou um dos jogos mais influentes e jogados. 
+                    Ele também é um pilar nos eSports, com uma alta comunidade e torneios internacionais que atraem milhões de espectadores 
+                    e oferecem grandes prêmios em dinheiro.
+                </p>
+            </div>
+        </div>
+        <div class="boxGames">
+            <h2>Valorant</h2>
+            <img class="imgGame" src="./assets/icon/valorantLogo.png" alt="">
+            <div class="textGame">
+                <p>É um jogo de tiro em primeira pessoa (FPS), desenvolvido e publicado pela Riot Games em junho de 2020.
+                    O jogo combina elementos de jogos de tiro clássicos com habilidades especiais únicas de personagens, 
+                    conhecido por sua jogabilidade precisa, gráficos estilizados e pelo foco na estratégia e trabalho em equipe.
+                    Desde o seu lançamento, tem se tornado um dos principais no cenário de eSports, atraindo uma grande 
+                    base de jogadores e competições internacionais.
+                </p>
+            </div>
+        </div>
+        <div class="boxGames">
+            <h2>Fornite</h2>
+            <img class="imgGame" src="./assets/icon/fortniteLogo.png" alt="">
+            <div class="textGame">
+                <p>É um battle royale desenvolvido pela Epic Games e lançado em 2017, que combina elementos de construção e sobrevivência.
+                    Com gráficos vibrantes e atualizações constantes incluindo novos modos de jogo, eventos e cosméticos, 
+                    Fortnite se destaca por sua jogabilidade dinâmica e capacidade de manter sua base de jogadores engajada.
+                    Se tornou um fenômeno cultural, influenciando diversas áreas como música, cinema e moda, além de ser um 
+                    dos jogos mais populares no cenário de eSports.
+                </p>
+            </div>
+        </div>
+        <div class="boxGames">
+            <h2>Apex Legends</h2>
+            <img class="imgGame" src="./assets/icon/apexLogo.png" alt="">
+            <div class="textGame">
+                <p>É um battle royale desenvolvido pela Respawn e publicado pela Electronic Arts em fevereiro de 2019.
+                    Combina elementos de tiro em primeira pessoa com mecânicas de habilidades e equipes de três jogadores, 
+                    onde devem trabalhar juntos para serem os últimos sobrevivente em uma arena. O jogo é elogiado por seu ritmo acelerado, 
+                    gráficos de alta qualidade e inovação dentro do gênero battle royale, conquistando rapidamente uma base de jogadores dedicada 
+                    e se tornando um título popular nos eSports.
+                </p>
+            </div>
+        </div>
+        <div class="boxGames">
+            <h2>Street Fighter</h2>
+            <img class="imgGame" src="./assets/icon/SF6Logo.png" alt="">
+            <div class="textGame">
+                <p>É uma franquia de jogos de luta desenvolvida e publicada pela Capcom, que estreou em 1987. Ganhou destaque mundialmente 
+                    com o lançamento de seu segundo jogo em 1991. Conhecido por suas mecânicas de combate complexas e precisas,
+                    permite aos jogadores realizar movimentos especiais e combos através de comandos específicos. Se tornou um dos pilares dos 
+                    jogos de luta, influenciando o desenvolvimento de outros jogos no gênero e mantendo uma presença significativa nos torneios de eSports.</p>
             </div>
         </div>
     </div>
+    <!-- sessao jogos -->
 
-    <div class="competitive">
-        <div class="container">
-          <div class="boxCompetitive">
-            <div class="box">
-              <img src="assets/imgs/growth_color.png">
-              <h4>Valores</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-                vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-                minima.</p>
+    <!-- sessao sobre mim -->
+    <section id="aboutMe" class="aboutMe">
+        <div class="line-1">
+            <div class="column-1">
+                <h1>Desenvolvedor</h1>
+                <div>
+                    <img src="./assets/dev.png" alt="Foto do desenvolvedor">
+                </div>
             </div>
-          </div>
+
+            <div class="column-2">
+                <div class="container-aboutMe">
+                    <h2>Sobre mim</h2>
+                    <p>Olá, me chamo Gustavo Aloe, tenho 23 anos e atualmente estou cursando Análise e
+                        Desenvolvimento de Sistemas pela SPTech. Gosto muito de jogar videogame, ouvir música
+                        e acompanhar diversas partidas dos campeonatos que gosto no meu tempo livre.</p>
+                </div>
+
+                <div class="container-aboutMe">
+                    <h2>Por que um projeto sobre eSports?</h2>
+                    <p>Bem, os eSports apareceram em minha vida quando eu era bem novo, sempre gostei muito de jogos e sempre joguei desde pequeno, 
+                        principalmente FPS, e quando descobri que existiam campeonatos que eram transmitidos e que eu poderia assistir os melhores jogadores, 
+                        comecei a acompanhar e a me interessar ainda mais.</p>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
+    <footer class="footer">
+        <div class="column-logo">
+            <img src="./assets/icon/logo.png">
+            <h5>© 2024 Gustavo Aloe</h5>
+        </div>
 
+        <div class="column-nav">
+            <div>
+                <a href="./index.html">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#competitivo">Competitivo</a>
+                <a href="#aboutMe">Sobre mim</a>
+            </div>
+        </div>
+
+        <div class="column-contact">
+            <div>
+                <div class="contact-container">
+                    <div>
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <h5><a href="mailto:gustavo.moraes@sptech.school">gustavo.moraes@sptech.school</a></h5>
+                    </div>
+
+                    <div>
+                        <ion-icon name="call-outline"></ion-icon>
+                        <h5>(11) 95628-6301</h5>
+                    </div>
+                </div>
+
+                <div class="social-line">
+                    <a href="https://github.com/GustavoAloe" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+                    <a href="https://www.linkedin.com/in/gustavo-aloe-a957872b6" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
+                    <a href="https://www.instagram.com/gustavobgz_" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

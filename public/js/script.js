@@ -1,7 +1,9 @@
 // Carrossel Imagens Sobre
 let count = 1;
-var checkbox = document.getElementById('radio');
-checkbox.checked = true;
+var checkbox = document.getElementById('radio1');
+if (checkbox) {
+  checkbox.checked = true;
+}
 
 setInterval(function () {
   nextImage();
@@ -13,7 +15,10 @@ function nextImage() {
     count = 1;
   }
 
-  document.getElementById("radio" + count).checked = true;
+  var nextCheckbox = document.getElementById("radio" + count);
+  if (nextCheckbox) {
+    nextCheckbox.checked = true;
+  }
 }
 
 // Carrossel Camp

@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/cadastroLogin.css">
     <title>eSports | Login</title>
+
+    <script src="./js/sessao.js"></script>
+    <script src="./js/script.js"></script>
+
+    <link rel="stylesheet" href="./css/cadastroLogin.css">
 </head>
 <body>  
     <div class="header">
         <div class="container">
             <div class="logo">
-                <img style="margin: 0; width: 60px; height: 60px;" src="./assets/icon/logo.png" alt="">
+                <a href="./index.html"><img style="margin: 0; width: 60px; height: 60px;" src="./assets/icon/logo.png" alt=""></a>
             </div>
             <nav class="navbar">
                 <li>
-                    <a href="index.html">Início</a>
+                    <a href="./index.html">Início</a>
                 </li>
                 <li>
                     <a href="#">Sobre</a>
@@ -23,19 +28,19 @@
                     <a href="#">Competitivo</a>
                 </li>
                 <li>
-                    <a href="#">Jogos</a>
+                    <a href="#">Sobre Mim</a>
                 </li>
                 <li>
-                    <a href="login.html" class="btn button">Login</a>
+                    <a href="./login.html" class="btn button">Login</a>
                 </li>
                 <li>
-                    <a href="cadastro.html" class="btn button">Cadastro</a>
+                    <a href="./cadastro.html" class="btn button">Cadastro</a>
                 </li>
             </nav>
         </div>
     </div>
 
-    <section>
+    <section class="sec_log">
         <div class="login-box">
             <div class="login-value">
                 <form action="">
@@ -45,13 +50,13 @@
 
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
-                        <input type="text" required>
+                        <input type="text" id="email_input" required>
                         <label for="">Email</label>
                     </div>
 
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" required>
+                        <input type="password" id="senha_input" required>
                         <label for="">Senha</label>
                     </div>
 
@@ -62,14 +67,85 @@
                     <button onclick="entrar()">Entrar</button>
 
                     <div class="register">
-                        <p>Não tem uma conta? <a href="public/cadastro.html">Cadastre-se</a></p>
+                        <p>Não tem uma conta? <a href="./cadastro.html">Cadastre-se</a></p>
                     </div>
                     
                 </form>
             </div>
         </div>
+        <div id="div_erro" class="divErro"></div>
     </section>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+
+<script>
+
+
+    function entrar() {
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            div_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location.href = "./dashboard.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
