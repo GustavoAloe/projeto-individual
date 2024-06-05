@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link
+      rel="shortcut icon"
+      href="../assets/icon/favicon2.ico"
+      type="image/x-icon"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eSports | Achar duo</title>
+
+    <link rel="stylesheet" href="../css/dashboards.css" />
+    <script src="../js/sessao.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body
+    onload="validarSessao(), atualizarFeed()"
+    style="background-color: black"
+  >
+    <div class="janela">
+      <div class="menu-lateral">
+        <div class="logoDash">
+          <a href="../index.html"
+            ><img
+              src="../assets/icon/logo.png"
+              alt=""
+              style="width: 6vw; padding-left: 1%"
+          /></a>
+          <a href="../index.html"><h1>eSports</h1></a>
+        </div>
+        <p class="bem-vindo">Olá, <span id="b_usuario">usuário</span></p>
+        <div class="botoes-menu">
+          <a href="quiz.html"><button>Quiz</button></a>
+          <a href="dashboard.html"
+            ><button id="dashboard-bnt">Dashboard</button></a
+          >
+          <a href="mensagem.html"><button>Fórum</button></a>
+        </div>
+        <button onclick="limparSessao()" class="btn-sair">Sair</button>
+      </div>
+
+      <div class="dash-right">
+        <div class="avisos">
+          <div class="container">
+            <img src="../assets/iconDuo.png" alt="" />
+            <h1>Procure um duo</h1>
+            <div class="div-form">
+              <form
+                id="form_postagem"
+                method="post"
+                onsubmit="return publicar()"
+              >
+                <label>
+                  Jogo:
+                  <br />
+                  <input
+                    name="jogo"
+                    id="jogo"
+                    maxlength="100"
+                    style="height: 30px; font-size: 18px; letter-spacing: 1px"
+                    type="text"
+                  />
+                </label>
+                <br />
+                <br />
+                <label>
+                  Texto (máximo de 250 caracteres):
+                  <br />
+                  <textarea
+                    name="descricao"
+                    id="textarea_descricao"
+                    maxlength="250"
+                    style="font-size: 18px; letter-spacing: 1px"
+                    rows="5"
+                  ></textarea>
+                </label>
+                <br />
+                <br />
+                <button>Enviar</button>
+              </form>
+            </div>
+            <h1>Mensagens dos usuários</h1>
+            <div class="div-results">
+              <div id="feed_container" class="feed-container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
+
+<script>
+  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+  function limparFormulario() {
+    document.getElementById("form_postagem").reset();
+  }
+
+  function publicar() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+    var nomeUsuario = sessionStorage.NOME_USUARIO;
+
+    var corpo = {
+      jogo: form_postagem.jogo.value,
+      descricao: form_postagem.descricao.value,
+    };
+
+    fetch(`/mensagem/publicar/${idUsuario}`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(corpo),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          window.alert(
+            "Post realizado com sucesso pelo usuario: " + nomeUsuario + "!"
+          );
+          window.location = "/dashboard/mensagem.html";
+          limparFormulario();
+          finalizarAguardar();
+        } else if (resposta.status == 404) {
+          window.alert("Deu 404!");
+        } else {
+          throw (
+            "Houve um erro ao tentar realizar a postagem! Código da resposta: " +
+            resposta.status
+          );
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+
+  function editar(idMensagem) {
+    var nomeUsuario = sessionStorage.NOME_USUARIO;
+    sessionStorage.ID_POSTAGEM_EDITANDO = idMensagem;
+    console.log("cliquei em editar - " + idMensagem);
+    window.alert(
+      "Você será redirecionado à página de edição da mensagem em um instante " +
+        nomeUsuario
+    );
+    window.location = "/dashboard/edicaoMensagem.html";
+  }
+
+  function deletar(idMensagem) {
+    console.log("Criar função de apagar post escolhido - ID" + idMensagem);
+    fetch(`/mensagem/deletar/${idMensagem}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          window.alert(
+            "Post deletado com sucesso pelo usuario: " +
+              sessionStorage.getItem("NOME_USUARIO") +
+              "!"
+          );
+          window.location = "/dashboard/mensagem.html";
+        } else if (resposta.status == 404) {
+          window.alert("Deu 404!");
+        } else {
+          throw (
+            "Houve um erro ao tentar realizar a postagem! Código da resposta: " +
+            resposta.status
+          );
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function atualizarFeed() {
+    fetch("/mensagem/listar")
+      .then(function (resposta) {
+        if (resposta.ok) {
+          if (resposta.status == 204) {
+            var feed = document.getElementById("feed_container");
+            var mensagem = document.createElement("span");
+            mensagem.innerHTML = "Sem mensagens no momento!";
+            feed.appendChild(mensagem);
+            throw "Nenhum resultado encontrado!!";
+          }
+
+          resposta.json().then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+            var feed = document.getElementById("feed_container");
+            feed.innerHTML = "";
+            for (let i = 0; i < resposta.length; i++) {
+              var publicacao = resposta[i];
+
+              // criando e manipulando elementos do HTML via JavaScript
+              var divPublicacao = document.createElement("div");
+              var spanID = document.createElement("span");
+              var spanJogo = document.createElement("span");
+              var spanNome = document.createElement("span");
+              var divDescricao = document.createElement("div");
+              var divButtons = document.createElement("div");
+              var btnEditar = document.createElement("button");
+              var btnDeletar = document.createElement("button");
+
+              spanJogo.innerHTML =
+                "Jogo: <b>" + publicacao.jogo + "</b> <br><br>";
+              spanNome.innerHTML = "Usuário: <b>" + publicacao.nome + "</b>";
+              divDescricao.innerHTML =
+                "Texto: <b>" + publicacao.descricao + "</b>";
+              btnEditar.innerHTML = "Editar";
+              btnDeletar.innerHTML = "Deletar";
+
+              divPublicacao.className = "publicacao";
+              spanJogo.id = "inputNumero" + publicacao.idMensagem;
+              spanNome.className = "publicacao-nome";
+              spanJogo.className = "publicacao-jogo";
+              divDescricao.className = "publicacao-descricao";
+
+              divButtons.className = "div-buttons";
+
+              btnEditar.className = "publicacao-btn-editar";
+              btnEditar.id = "btnEditar" + publicacao.idMensagem;
+              btnEditar.setAttribute(
+                "onclick",
+                `editar(${publicacao.idMensagem})`
+              );
+
+              btnDeletar.className = "publicacao-btn-editar";
+              btnDeletar.id = "btnDeletar" + publicacao.idMensagem;
+              btnDeletar.setAttribute(
+                "onclick",
+                `deletar(${publicacao.idMensagem})`
+              );
+
+              divPublicacao.appendChild(spanID);
+              divPublicacao.appendChild(spanNome);
+              divPublicacao.appendChild(spanJogo);
+              divPublicacao.appendChild(divDescricao);
+              divPublicacao.appendChild(divButtons);
+              divButtons.appendChild(btnEditar);
+              divButtons.appendChild(btnDeletar);
+              feed.appendChild(divPublicacao);
+            }
+
+          });
+        } else {
+          throw "Houve um erro na API!";
+        }
+      })
+      .catch(function (resposta) {
+        console.error(resposta);
+      });
+  }
+</script>

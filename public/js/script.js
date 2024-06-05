@@ -1,6 +1,6 @@
 // Carrossel Imagens Sobre
 let count = 1;
-var checkbox = document.getElementById('radio1');
+var checkbox = document.getElementById("radio1");
 if (checkbox) {
   checkbox.checked = true;
 }

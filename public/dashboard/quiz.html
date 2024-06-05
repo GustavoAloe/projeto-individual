@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/stylequiz.css" />
+    <link rel="stylesheet" href="../css/dashboards.css" />
+    <script src="../js/quiz.js" async></script>
+    <script src="../js/sessao.js"></script>
+
+    <title>eSports | Quiz</title>
+  </head>
+
+  <body>
+    <div class="janela">
+      <div class="menu-lateral">
+        <div class="logoDash">
+          <a href="../index.html"
+            ><img
+              src="../assets/icon/logo.png"
+              alt=""
+              style="width: 6vw; padding-left: 1%"
+          /></a>
+          <a href="../index.html"><h1>eSports</h1></a>
+        </div>
+        <p class="bem-vindo">Olá, <span id="b_usuario">usuário</span></p>
+        <div class="botoes-menu">
+          <a href="quiz.html"><button>Quiz</button></a>
+          <a href="dashboard.html"
+            ><button id="dashboard-bnt">Dashboard</button></a
+          >
+          <a href="mensagem.html"><button>Fórum</button></a>
+        </div>
+        <button onclick="limparSessao()" class="btn-sair">Sair</button>
+      </div>
+
+      <div class="container">
+        <div id="headerQuiz" style="padding-bottom: 40px">
+          <h2>Quiz sobre logos de organizações de eSports</h2>
+        </div>
+        <div class="questions-container hide">
+          <span class="question">Pergunta aqui?</span>
+          <figure class="imageQuestion">
+            <img src="" alt="Img da questao" width="150px" />
+          </figure>
+          <div class="answers-container">
+            <button class="answer button">Resposta 1</button>
+            <button class="answer button">Resposta 2</button>
+            <button class="answer button">Resposta 3</button>
+            <button class="answer button">Resposta 4</button>
+          </div>
+        </div>
+        <div class="controls-container">
+          <button class="start-quiz button">Começar Quiz!</button>
+          <button class="next-question button hide">Próxima pergunta</button>
+        </div>
+
+        <div id="resultados" class="ranking">
+          <span
+            id="verRanking"
+            style="
+              font-size: 18px;
+              display: flex;
+              display: block;
+              padding-top: 30px;
+              color: white;
+              font-weight: 800;
+              font-family: 'Jura';
+            "
+            >Ja fez o quiz e quer ver sua posição? Clique em -
+            <a
+              href="./dashboard.html"
+              id="verRanking"
+              style="
+                font-size: 19px;
+                color: white;
+                font-weight: 800;
+                font-family: 'Jura';
+              "
+              >Ver Ranking</a
+            ></span
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+  var idUsuario = sessionStorage.ID_USUARIO;
+  var nomeUsuario = sessionStorage.NOME_USUARIO;
+  const startButton = document.querySelector(".start-quiz");
+
+  startButton.addEventListener("click", sumirText);
+
+  function sumirText() {
+    document.getElementById("headerQuiz").style.display = "none";
+    document.getElementById("verRanking").style.display = "none";
+  }
+</script>

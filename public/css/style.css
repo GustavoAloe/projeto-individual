@@ -2,7 +2,7 @@
 
 
 :root{
-    --vermelho-primario: #A00000;
+    --vermelho-primario: #a00000;
     --cor-fundo: #060606;
     --branco-textos: #FFFFFF;
 
@@ -174,7 +174,7 @@ a {
 .textSobre p {
     color: var(--branco-textos);
     width: 720px;
-    font-size: 15px;
+    font-size: 17px;
     padding-bottom: 15px;
 }
 
@@ -406,7 +406,7 @@ a {
 .textComp p {
     color: var(--branco-textos);
     width: 850px;
-    font-size: 15px;
+    font-size: 17px;
     padding-bottom: 15px;
 }
 
@@ -417,9 +417,9 @@ a {
 }
 
 .imgComp img {
-    width: 250px;
-    height: 200px;
-    padding: 15px;
+    width: 240px;
+    height: 210px;
+    padding: 5px;
 }
 
 /* sessao games */
@@ -438,7 +438,7 @@ a {
 
 .containerGames {
     width: 100%;
-    min-height: 60vh;
+    min-height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -447,7 +447,7 @@ a {
 
 .boxGames {
     width: 300px;
-    height: 400px;
+    height: 500px;
     padding: 20px;
     position: relative;
     overflow: hidden;
@@ -457,13 +457,14 @@ a {
     text-transform: uppercase;
     color: #fff;
     z-index: 1;
+    top: 8%;
     transition: .5s ease-in-out;
     position: relative;
-    left: -90%;
+    left: -100%;
 }
 
 .boxGames:hover h2 {
-    transform: translateX(85%);
+    transform: translateX(95%);
 }
 
 .boxGames img.imgGame {
@@ -477,7 +478,7 @@ a {
 
 .boxGames:hover img.imgGame {
     width: 35px;
-    transform: translate(85px, -182px);
+    transform: translate(85px, -193px);
 }
 
 .boxGames .textGame {
@@ -485,7 +486,7 @@ a {
     height: 100%;
     position: absolute;
     z-index: 1;
-    top: 20px;
+    top: 12%;
     left: -95%;
     transition: .5s ease-in-out;
     padding: 70px 20px;

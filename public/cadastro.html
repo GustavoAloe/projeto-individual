@@ -1,138 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>eSports | Cadastro</title>
 
     <script src="./js/sessao.js"></script>
     <script src="./js/script.js"></script>
 
-    <link rel="stylesheet" href="./css/cadastroLogin.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./css/cadastroLogin.css" />
+  </head>
+  <body>
     <div class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="./index.html"><img style="margin: 0; width: 60px; height: 60px;" src="./assets/icon/logo.png" alt=""></a>
-            </div>
-            <nav class="navbar">
-                <li>
-                    <a href="./index.html">Início</a>
-                </li>
-                <li>
-                    <a href="#">Sobre</a>
-                </li>
-                <li>
-                    <a href="#">Competitivo</a>
-                </li>
-                <li>
-                    <a href="#">Sobre Mim</a>
-                </li>
-                <li>  
-                    <a href="./login.html" class="btn button">Login</a>
-                </li>
-                <li>
-                    <a href="./cadastro.html" class="btn button">Cadastro</a>
-                </li>
-            </nav>
+      <div class="container">
+        <div class="logo">
+          <a href="./index.html"
+            ><img
+              style="margin: 0; width: 60px; height: 60px"
+              src="./assets/icon/logo.png"
+              alt=""
+          /></a>
         </div>
+        <nav class="navbar">
+          <li>
+            <a href="./index.html">Início</a>
+          </li>
+          <li>
+            <a href="#">Sobre</a>
+          </li>
+          <li>
+            <a href="#">Competitivo</a>
+          </li>
+          <li>
+            <a href="#">Sobre Mim</a>
+          </li>
+          <li>
+            <a href="./login.html" class="btn button">Login</a>
+          </li>
+          <li>
+            <a href="./cadastro.html" class="btn button">Cadastro</a>
+          </li>
+        </nav>
+      </div>
     </div>
     <section class="sec_cad">
-        <div class="form-box">
-            <div class="form-value">
-                <form action="">
-                    <h2>Cadastro</h2>
+      <div class="form-box">
+        <div class="form-value">
+          <h2>Cadastro</h2>
 
-                    <div class="inputbox">
-                        <ion-icon name="person-outline"></ion-icon>
-                        <input type="text" id="nome_input" required>
-                        <label for="">Usuário</label>
-                    </div>
+          <div class="inputbox">
+            <ion-icon name="person-outline"></ion-icon>
+            <input type="text" id="nome_input" required />
+            <label for="">Usuário</label>
+          </div>
 
-                    <div class="inputbox">
-                        <ion-icon name="mail-outline"></ion-icon>
-                        <input type="text" id="email_input" required>
-                        <label for="">Email</label>
-                    </div>
+          <div class="inputbox">
+            <ion-icon name="mail-outline"></ion-icon>
+            <input type="text" id="email_input" required />
+            <label for="">Email</label>
+          </div>
 
-                    <div class="inputbox">
-                        <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" id="senha_input" required>
-                        <label for="">Senha</label>
-                    </div>
+          <div class="inputbox">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input type="password" id="senha_input" required />
+            <label for="">Senha</label>
+          </div>
 
-                    <div class="inputbox">
-                        <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" id="confirmacao_senha_input" required>
-                        <label for="">Confirme sua Senha</label>
-                    </div>
+          <div class="inputbox">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input type="password" id="confirmacao_senha_input" required />
+            <label for="">Confirme sua Senha</label>
+          </div>
 
-                    <div class="select-container">
-                        <label for="">Categoria Favorita:</label>
-                        <select class="select-box" id="select_category">
-                          <option value="#">Selecione</option>
-                          <option value="1">FPS</option>
-                          <option value="2">Moba</option>
-                          <option value="3">Battle Royale</option>
-                          <option value="5">Card Game</option>
-                          <option value="4">Fight Game</option>
-                          <option value="6">Simuladores</option>
-                          <option value="7">RTS</option>
-                      </select>
-                    </div>
-                    <br>
+          <div class="select-container">
+            <label for="">Categoria Favorita:</label>
+            <select class="select-box" id="select_category">
+              <option value="#">Selecione</option>
+              <option value="1">FPS</option>
+              <option value="2">Moba</option>
+              <option value="3">Battle Royale</option>
+              <option value="5">Card Game</option>
+              <option value="4">Fight Game</option>
+              <option value="6">Simuladores</option>
+              <option value="7">RTS</option>
+            </select>
+          </div>
+          <br />
 
-                    <button onclick="cadastrar()">Cadastrar</button>
+          <button onclick="cadastrar()">Cadastrar</button>
 
-                    <div class="register">
-                        <p>Ja tem uma conta? <a href="./login.html">Faça Login</a></p>
-                    </div>
+          <div class="register">
+            <p>Ja tem uma conta? <a href="./login.html">Faça Login</a></p>
+          </div>
 
-                    <div id="div_erro" class="divErro"></div>
-                  </section>
-  
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
+          <div id="div_erro" class="divErro"></div>
+        </div>
+      </div>
+    </section>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
 </html>
 
 <script>
-    function cadastrar() {
-
+  function cadastrar() {
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var categoriaVar = select_category.value
-    
-    if (nomeVar === "" || 
-        emailVar === "" || 
-        senhaVar === "" || 
-        confirmacaoSenhaVar === "" || 
-        categoriaVar === "#"
-      ) {
-        div_erro.innerHTML = "Por favor, preencha todos os campos.";
+    var categoriaVar = select_category.value;
 
-        } 
-        
+    if (
+      nomeVar === "" ||
+      emailVar === "" ||
+      senhaVar === "" ||
+      confirmacaoSenhaVar === "" ||
+      categoriaVar === "#"
+    ) {
+      div_erro.innerHTML = "Por favor, preencha todos os campos.";
+    }
     // else if (emailvar.indexOf(`.`) == false || emailvar.indexOf(`@`) == false) {
     //   div_erro.innerHTML += `Email incorreto! <br>`
 
     // }
     else if (senhaVar.lenght < 8) {
-      div_erro.innerHTML += `A senha deve conter no mínimo 8 caracteres.<br>`
-
-    }
-    else if (senhaVar !== confirmacaoSenhaVar) {
-        div_erro.innerHTML = "As senhas não coincidem.";
-
-        } 
-    else {
+      div_erro.innerHTML += `A senha deve conter no mínimo 8 caracteres.<br>`;
+    } else if (senhaVar !== confirmacaoSenhaVar) {
+      div_erro.innerHTML = "As senhas não coincidem.";
+    } else {
       setInterval(sumirMensagem, 5000);
-
     }
 
     // Enviando o valor da nova input
@@ -147,27 +152,26 @@
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        categoriaServer: categoriaVar
+        categoriaServer: categoriaVar,
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
+        console.log("Status resposta: ", resposta.ok);
+
         if (resposta.ok) {
-          div_erro.innerHTML =
-            "Cadastro realizado com sucesso!";
+          div_erro.innerHTML = "Cadastro realizado com sucesso!";
 
-          setTimeout(() => {
-            window.location = "./login.html";
-          }, "2000");
-
-        } 
+          // setTimeout(() => {
+          window.location = "../login.html";
+          // }, "2000");
+        }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
         div_erro.innerHTML = "Houve um erro ao tentar realizar o cadastro.";
       });
-
   }
 
   function sumirMensagem() {
