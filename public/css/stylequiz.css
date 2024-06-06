@@ -607,17 +607,7 @@ body {
   font-family: 'Rubik', sans-serif;
   transition: filter 0.2s;
 }
-  /* transition: ease-in-out 0.2s;
-}
 
-.button:hover {
-  color: var(--vermelho-primario);
-  border: var(--vermelho-primario) 2px solid;
-  background-color: var(--branco-textos);
-
-  width: 185px;
-  cursor: pointer;
-} */
 .button:not(:disabled):hover {
   filter: brightness(0.85);
 }

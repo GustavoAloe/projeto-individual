@@ -13,8 +13,6 @@ function cadastro_pontuacao(
   pontuacao_usuario_sendo_puxada
 ) {
   console.log(`teste`);
-  // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-  //  e na ordem de inserção dos dados.
   var instrucao = `
         INSERT INTO quiz (pontuacao, fkusuario) VALUES ('${pontuacao_usuario_sendo_puxada}', 
         '${id_do_usuario_sendo_puxada}');

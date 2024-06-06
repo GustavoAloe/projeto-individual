@@ -1,10 +1,10 @@
 var dashboardModel = require("../models/dashboardModel.js");
 
 function exibirMaiorPontuacao(req, res) {
-  const idUsuario = req.query.id; // Pega o ID do usuário da URL
+  const idUsuario = req.query.id;
 
   dashboardModel
-    .exibirMaiorPontuacao(idUsuario) // Passa o ID para o model
+    .exibirMaiorPontuacao(idUsuario)
     .then((resultado) => {
       if (resultado.length > 0) {
         res.status(200).json(resultado);

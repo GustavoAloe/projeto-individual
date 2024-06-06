@@ -2,11 +2,9 @@ var quizModel = require("../models/quizModel");
 
 function cadastro_pontuacao(req, res) {
   console.log(`teste1`);
-  // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
   var id_do_usuario_sendo_puxada = req.body.idusuarioServer;
   var pontuacao_usuario_sendo_puxada = req.body.pontuacaoServer;
 
-  // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
   quizModel
     .cadastro_pontuacao(
       id_do_usuario_sendo_puxada,

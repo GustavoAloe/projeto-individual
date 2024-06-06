@@ -111,8 +111,6 @@
 
 <script>
   function cadastrar() {
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
@@ -128,10 +126,7 @@
     ) {
       div_erro.innerHTML = "Por favor, preencha todos os campos.";
     }
-    // else if (emailvar.indexOf(`.`) == false || emailvar.indexOf(`@`) == false) {
-    //   div_erro.innerHTML += `Email incorreto! <br>`
 
-    // }
     else if (senhaVar.lenght < 8) {
       div_erro.innerHTML += `A senha deve conter no mínimo 8 caracteres.<br>`;
     } else if (senhaVar !== confirmacaoSenhaVar) {
@@ -147,8 +142,6 @@
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
@@ -163,9 +156,7 @@
         if (resposta.ok) {
           div_erro.innerHTML = "Cadastro realizado com sucesso!";
 
-          // setTimeout(() => {
           window.location = "../login.html";
-          // }, "2000");
         }
       })
       .catch(function (resposta) {
