@@ -232,5 +232,5 @@ function enviarparadiv() {
 }
 
 function plotarGrafico(resposta) {
-  resultados.innerHTML += `<span id="resultados" style="font-size: 24px; display: flex; padding-top: 30px; color: white; font-weight: 800; font-family: 'Jura';">Quer ver a sua posição no ranking? Clique em - <a href="./dashboard.html" id="resultados" style="font-size: 26px; color: white; font-weight: 800; font-family: 'Jura';">Ver Ranking</a></span>`;
+  resultados.innerHTML += `<span id="resultados" style="font-size: 24px; display: flex; padding-top: 30px; color: white; font-weight: 800; font-family: 'Jura';">Quer ver a sua posição no ranking? Clique em -  <a href="./dashboard.html" id="resultados" style="font-size: 26px; color: white; font-weight: 800; font-family: 'Jura';">Ver Ranking</a></span>`;
 }

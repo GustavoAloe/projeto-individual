@@ -66,22 +66,6 @@ a {
         text-decoration: none;
         color: var(--branco-textos)
 }
-/* 
-.header a::before {
-    content: "";
-    width: 20px;
-    height: 4px;
-    border-top-left-radius: 32px;
-    border-bottom-right-radius: 32px;
-    background-color: var(--vermelho-primario);
-    position: absolute;
-    bottom: -6px;
-    transition: width .4s ease-in-out;
-}
-
-.header a:hover::before {
-    width: 100%;
-} */
 
 .navbar li {
     font-weight: 800;
@@ -168,136 +152,87 @@ a {
     height: 550px;
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 /* Texto Slider */
 .textSobre p {
     color: var(--branco-textos);
-    width: 720px;
+    width: 800px;
     font-size: 17px;
     padding-bottom: 15px;
 }
 
 /* Slider  Sobre*/
 .slider { /* altera o local do slider */
-    margin: 50px;
-    width: 800px;
-    height: 400px;
-    overflow: hidden;
+    overflow-x: hidden;
+    width: 900px;
+    border-radius: 20px;
+    scroll-behavior: smooth;
+
 }
 
-.slides {
-    width: 400%;
-    height: 400px;
-    display: flex;
-}
-
-.slides input {
-    display: none;
-}
-
-.slide {
-    width: 25%;
+.slide{
     position: relative;
-    transition: 3s;
 }
 
-.slide img {
-    width: 800px;
-}
-
-.manual-navigation {
-    position: absolute;
-    width: 800px;
-    margin-top: -40px;
+.content {
     display: flex;
-    justify-content: center;
+    width: fit-content;
 }
 
-.manual-btn {
-    border: 2px solid var(--branco-textos);
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
+.content img {
+    width: 900px;
+    height: 400px;
+    object-fit: cover;
 }
 
-.manual-btn:not(:last-child) {
-    margin-right: 40px;
-}
-
-.manual-btn:hover {
+button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
     background-color: var(--branco-textos);
-}
-
-#radio1:checked ~ .first {
-    margin-left: 0;
-}
-
-#radio2:checked ~ .first {
-    margin-left: -25%;
-}
-
-#radio3:checked ~ .first {
-    margin-left: -50%;
-}
-
-#radio4:checked ~ .first {
-    margin-left: -75%;
-}
-
-#radio5:checked ~ .first {
-    margin-left: -100%;
-}
-
-#radio6:checked ~ .first {
-    margin-left: -125%;
-}
-
-.navigation-auto div {
-    border: 2px solid var(--vermelho-primario);
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
-}
-
-.navigation-auto {
+    color: var(--cor-fundo);
     position: absolute;
-    width: 800px;
-    margin-top: 360px;
+    top: 50%;
+    cursor: pointer;
+}
+
+button:first-of-type {
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+button:last-of-type {
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+button:hover {
+    background-color: var(--vermelho-primario);
+}
+
+.length-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 200%);
     display: flex;
-    justify-content: center;
+    gap: 10px;
 }
 
-.navigation-auto div:not(:last-child) {
-    margin-right: 40px;
-}
-
-#radio1:checked ~ .navigation-auto .auto-btn1 {
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
     background-color: var(--branco-textos);
 }
 
-#radio2:checked ~ .navigation-auto .auto-btn2 {
-    background-color: var(--branco-textos);
+.dot.current {
+    background-color: var(--vermelho-primario);
 }
-
-#radio3:checked ~ .navigation-auto .auto-btn3 {
-    background-color: var(--branco-textos);
-}
-
-#radio4:checked ~ .navigation-auto .auto-btn4 {
-    background-color: var(--branco-textos);
-}
-
-#radio5:checked ~ .navigation-auto .auto-btn5 {
-    background-color: var(--branco-textos);
-}
-
-#radio6:checked ~ .navigation-auto .auto-btn6 {
-    background-color: var(--branco-textos);
-}
-
 /* Fim do Slider */
 
 /* Container Camps */
@@ -327,7 +262,7 @@ a {
 .containerCamp {
     position: relative;
     padding: 15px;
-    max-width: 720px;
+    max-width: 1060px;
     margin: 0 auto;
 }
 
@@ -338,41 +273,13 @@ a {
 .gallery {
     display: flex;
     flex-flow: row nowrap;
-    gap: 15px;
+    gap: 20px;
 }
 
-.left-arrow,
-.right-arrow {
-    position: absolute;
-    top: 0;
-    left: -20px;
-    right: auto;
-    bottom: 0;
-    font-size: 20px;
-    line-height: auto;
-    width: 20px;
-    text-align: center;
-    color: var(--branco-textos);
-    cursor: pointer;
-    border: none;
-    background: var(--cor-fundo)  0;
-}
-
-.right-arrow {
-    left: auto;
-    right: 0px;
-}
 
 .item {
     width: 100px;
     height: 100px;
-    flex-shrink: 0;
-    opacity: 0.6;
-    transition: all 600ms ease-in-out;
-}
-
-.current-item {
-    opacity: 1;
 }
 
 .gallery-wrapper::-webkit-scrollbar {
@@ -399,8 +306,7 @@ a {
 }
 
 .textComp {
-    padding-left: 40px;
-    padding-top: 35px
+    padding: 40px;
 }
 
 .textComp p {
@@ -417,8 +323,8 @@ a {
 }
 
 .imgComp img {
-    width: 240px;
-    height: 210px;
+    width: 300px;
+    height: 250px;
     padding: 5px;
 }
 
@@ -438,7 +344,7 @@ a {
 
 .containerGames {
     width: 100%;
-    min-height: 90vh;
+    min-height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -446,11 +352,12 @@ a {
 }
 
 .boxGames {
-    width: 300px;
-    height: 500px;
+    width: 350px;
+    height: 550px;
     padding: 20px;
     position: relative;
     overflow: hidden;
+    bottom: 40px
 }
 
 .boxGames h2 {
@@ -461,6 +368,7 @@ a {
     transition: .5s ease-in-out;
     position: relative;
     left: -100%;
+    font-size: 30px;
 }
 
 .boxGames:hover h2 {
@@ -472,13 +380,13 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    width: 150px;
+    width: 200px;
     transition: .5s ease-in-out;
 }
 
 .boxGames:hover img.imgGame {
-    width: 35px;
-    transform: translate(85px, -193px);
+    width: 45px;
+    transform: translate(85px, -210px);
 }
 
 .boxGames .textGame {
@@ -489,7 +397,7 @@ a {
     top: 12%;
     left: -95%;
     transition: .5s ease-in-out;
-    padding: 70px 20px;
+    padding: 85px 20px;
 }
 
 .boxGames .textGame::after {
@@ -508,7 +416,7 @@ a {
 .boxGames .textGame p {
     color: #fff;
     letter-spacing: 1px;
-    font-size: 13px;
+    font-size: 16px;
 }
 
 /* sessao sobre mim */
@@ -552,7 +460,7 @@ a {
 
 .container-aboutMe {
     margin: 20px 0;
-    width: 600px;
+    width: 700px;
 }
 
 .container-aboutMe h2 {
@@ -564,7 +472,7 @@ a {
 }
 
 .container-aboutMe p {
-    font-size: 19px;
+    font-size: 20px;
     color: var(--branco-textos);
 }
 
@@ -595,7 +503,7 @@ a {
 }
 
 .footer .column-logo h5 {
-    font-size: 15px;
+    font-size: 18px;
     margin-top: 12px;
     letter-spacing: 1px;
     font-weight: 500;
@@ -618,7 +526,7 @@ a {
 }
 
 .footer .column-nav div a {
-    font-size: 16px;
+    font-size: 19px;
     display: inline-block;
     margin-bottom: 15px;
     position: relative;
@@ -684,7 +592,7 @@ a {
 }
 
 .footer .column-contact .social-line ion-icon {
-    font-size: 35px;
+    font-size: 50px;
     margin-right: 8px;
     user-select: none;
     pointer-events: none;

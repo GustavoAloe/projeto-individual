@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <link
-      rel="shortcut icon"
-      href="../assets/icon/favicon2.ico"
-      type="image/x-icon"
-    />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -57,7 +52,7 @@
               <canvas id="myChart"></canvas>
             </div>
           </div>
-
+          <br><br>
           <div class="boxGrafico">
             <div class="tituloGrafico">
               <span>Quantidade de pessoas em cada categoria</span>
@@ -120,6 +115,7 @@
           label: "Ganho em bilhões de $",
           data: ["121", "140", "162", "197", "215", "236", "267", "276"],
           borderWidht: 1,
+          backgroundColor: ['rgb(0, 155, 45)']
         },
       ],
     },
@@ -132,37 +128,68 @@
     },
   });
 
-  const ctx2 = document.getElementById("myChart2");
+  var categoria = [];
+  var usuario = [];
 
-  new Chart(ctx2, {
-    type: "bar",
-    data: {
-      labels: [
-        "FPS",
-        "MOBA",
-        "BATTLE ROYALE",
-        "CARD GAME",
-        "FIGHTING GAME",
-        "SIMULADORES",
-        "RTS",
-      ],
-      datasets: [
-        {
-          label: "Usuários",
-          data: [],
-          borderWidht: 1,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
-  });
+    const ctx2 = document.getElementById('myChart2')
 
+    fetch(`/dashboard/usuariosCategoria`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (resposta) {
+
+        if (resposta.ok) {
+            resposta.json().then((json) => {
+                console.log(json)
+                json.forEach(element => {
+                    categoria.push(element.categoria)
+                    usuario.push(element.qtdPessoas)
+                });
+            }).then(() => {
+                carregarGrafico2()
+            })
+        } else if (resposta.status == 404) {
+            window.alert("Deu 404!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+
+    function carregarGrafico2() {
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['FPS', 'MOBA', 'BATTLE ROYALE', 'CARD GAME', 'FIGHTING GAME', 'SIMULADORES', 'RTS'],
+                datasets: [{
+                    label: 'Votos',
+                    data: [usuario[0], usuario[1], usuario[2], usuario[3], usuario[4], usuario[5], usuario[6], 0],
+                    borderWidth: 1,
+                    backgroundColor: [
+                        'rgb(50, 50, 50)',
+                        'rgb(70, 70, 70)',
+                        'rgb(90, 90, 90)',
+                        'rgb(110, 110, 110)',
+                        'rgb(30, 30, 30)',
+                        'rgb(20, 20, 20)',
+                        'rgb(45, 45, 45)'
+                    ],
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+            x: {
+                stacked: true,
+                maxBarThickness: 60 // Ajuste a largura máxima das barras
+            }
+        });
+    }
   function enviarparadiv() {
     fetch("/quiz/listar_pontuacao")
       .then(function (response) {
@@ -184,12 +211,12 @@
   }
 
   function enviarPontuacao() {
-    let usuarioId = sessionStorage.getItem("ID_USUARIO"); // Obter o ID do usuário
+    let usuarioId = sessionStorage.getItem("ID_USUARIO");
     if (!usuarioId) {
-      usuarioId = 0; // Definir um valor padrão
+      usuarioId = 0;
     }
 
-    fetch(`/dashboard/exibirMaiorPontuacao?id=${usuarioId}`) // Passar o ID na URL
+    fetch(`/dashboard/exibirMaiorPontuacao?id=${usuarioId}`)
       .then(function (response) {
         if (response.ok) {
           response.json().then(function (resposta) {
@@ -242,17 +269,21 @@
   }
 
   function plotarPontuacao(resposta) {
-    maiorPontuacao.innerHTML = `${resposta[0].maiorPontuacao}`;
+    if ( resposta[0].maiorPontuacao == null) {
+      maiorPontuacao.innerHTML = '-'
+    } else {
+      maiorPontuacao.innerHTML = `${resposta[0].maiorPontuacao}`;
+    }
   }
 
   function plotarJogosCategoria(resposta) {
-    // Se a resposta tiver dados, mostrar a quantidade de jogos
+
     if (resposta.length > 0) {
       qtdJogosCompetidos.innerHTML = `${resposta[0].qtdJogos}`;
-      categoriaFavorita.innerHTML = `${resposta[0].categoria} mais competidos`; // Mostrar a ca
+      categoriaFavorita.innerHTML = `${resposta[0].categoria} mais competidos`;
     } else {
-      qtdJogosCompetidos.innerHTML = "0"; // Mostrar 0 se não houver jogos
-      categoriaFavorita.innerHTML = "Sem categoria"; // Mostrar mensagem se não houver categoria
+      qtdJogosCompetidos.innerHTML = '0';
+      categoriaFavorita.innerHTML = "Sem categoria";
     }
   }
 </script>

@@ -30,17 +30,13 @@ function enviarJogosCategoria(idUsuario) {
   return database.executar(instrucao);
 }
 
-function qtdPessoasCategoria() {
+function usuariosCategoria() {
   var instrucao = `
-    select cat.categoria,
-       count(u.fkCategoria) as qtdPessoas
-    from usuario u
-    inner join categoria cat on cat.id = u.fkCategoria
-    group by categoria;select cat.categoria,
-    count(u.fkCategoria) as qtdPessoas
-    from usuario u
-    inner join categoria cat on cat.id = u.fkCategoria
-    group by categoria;
+  select cat.categoria,
+  count(u.fkCategoria) as qtdPessoas
+  from categoria cat
+  inner join usuario u on u.fkCategoria = cat.id
+  group by cat.categoria, u.fkCategoria order by qtdPessoas desc;
     `;
   console.log("Executando a instrução SQL? \n" + instrucao);
   return database.executar(instrucao);
@@ -49,5 +45,5 @@ function qtdPessoasCategoria() {
 module.exports = {
   exibirMaiorPontuacao,
   enviarJogosCategoria,
-  qtdPessoasCategoria,
+  usuariosCategoria,
 };

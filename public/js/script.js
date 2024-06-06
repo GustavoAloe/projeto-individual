@@ -1,57 +1,71 @@
 // Carrossel Imagens Sobre
-let count = 1;
-var checkbox = document.getElementById("radio1");
-if (checkbox) {
-  checkbox.checked = true;
+document.addEventListener('DOMContentLoaded', () => {
+const btnNext = document.getElementById('nextSlide');
+const btnPrevious = document.getElementById('previousSlide');
+const slider = document.querySelector('.slider');
+const content = document.querySelector('.content');
+
+let slideWidth;
+  let contentWidth;
+
+  const rectSlider = slider.getBoundingClientRect();
+  slideWidth = rectSlider.width;
+  const rectContent = content.getBoundingClientRect();
+  contentWidth = rectContent.width;
+
+let currentSlide = 0;
+
+const slideProps = {
+  width: parseInt(slideWidth),
+  scroll: 0,
+};
+
+function setCurrentDot() {
+  const dots = document.querySelectorAll('.dot');
+  for (let dot of dots) {
+    dot.classList.remove('current');
+  }
+  dots[currentSlide].classList.add('current');
 }
 
-setInterval(function () {
-  nextImage();
-}, 9000);
+function controlSlide({ target: { id } }) {
+  const contentLength = content.children.length;
+  switch (id) {
+    case 'nextSlide': {
+      if (slideProps.scroll + slideProps.width < contentWidth) {
+        slideProps.scroll += slideProps.width;
+      }
+      if (currentSlide < contentLength - 1) {
+        currentSlide += 1;
+        setCurrentDot();
+      }
+      return slider.scrollLeft = slideProps.scroll;
+    }
 
-function nextImage() {
-  count++;
-  if (count > 6) {
-    count = 1;
-  }
+    case 'previousSlide': {
+      if (currentSlide > 0) {
+        currentSlide -= 1;
+        setCurrentDot();
+      }
+      slideProps.scroll = slideProps.scroll - slideProps.width < 0 ? 0 : slideProps.scroll - slideProps.width;
+      return slider.scrollLeft = slideProps.scroll;
+    }
 
-  var nextCheckbox = document.getElementById("radio" + count);
-  if (nextCheckbox) {
-    nextCheckbox.checked = true;
+    default:
+      break;
   }
 }
 
-// Carrossel Camp
-const controls = document.querySelectorAll(".control");
-let currentItem = 0;
-const items = document.querySelectorAll(".item");
-const maxItems = items.length;
+btnNext.addEventListener('click', controlSlide);
+btnPrevious.addEventListener('click', controlSlide);
 
-controls.forEach((control) => {
-  control.addEventListener("click", () => {
-    const isLeft = control.classList.contains("left-arrow");
+window.onload = () => {
+  const contentLength = content.children.length;
 
-    if (isLeft) {
-      currentItem -= 1;
-    } else {
-      currentItem += 1;
-    }
-
-    if (currentItem >= maxItems) {
-      currentItem = 0;
-    }
-
-    if (currentItem < 0) {
-      currentItem = maxItems - 1;
-    }
-
-    items.forEach((item) => item.classList.remove("current-item"));
-
-    items[currentItem].scrollIntoView({
-      inline: "center",
-      behavior: "smooth",
-    });
-
-    items[currentItem].classList.add("current-item");
-  });
+  for (let index = 0; index < contentLength - 1; index += 1) {
+    const newDot = slider.parentElement.querySelector('.dot').cloneNode();
+    slider.parentElement.querySelector('.length-dots').appendChild(newDot);
+  }
+  setCurrentDot();
+}
 });
