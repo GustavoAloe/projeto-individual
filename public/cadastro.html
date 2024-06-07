@@ -126,7 +126,9 @@
     ) {
       div_erro.innerHTML = "Por favor, preencha todos os campos.";
     }
-
+    else if (emailVar.indexOf('@') == -1) {
+      div_erro.innerHTML += 'Insira uma senha válida<br>'
+    }
     else if (senhaVar.lenght < 8) {
       div_erro.innerHTML += `A senha deve conter no mínimo 8 caracteres.<br>`;
     } else if (senhaVar !== confirmacaoSenhaVar) {
@@ -135,7 +137,6 @@
       setInterval(sumirMensagem, 5000);
     }
 
-    // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
